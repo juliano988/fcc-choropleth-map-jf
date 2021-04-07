@@ -3,3 +3,10 @@ export type geometriesArrElem = {
     id: number;
     arcs: Array<Array<number>>
   }
+
+export type educInfoElemType = {
+  fips: number,
+  state: string,
+  area_name: string,
+  bachelorsOrHigher: number
+}
