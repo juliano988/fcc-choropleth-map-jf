@@ -24,7 +24,7 @@ export default function Home({ educInfo, mapInfo }) {
         </div>
       </div>
       <h4 style={{ margin: '0px', marginBottom: '20px' }}>Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h4>
-      <div style={{ maxWidth: '800px', margin: 'auto', padding: '10px' }}>
+      <div style={{ maxWidth: '750px', margin: 'auto', padding: '10px' }}>
         <Graphic educInfo={educInfo} mapInfo={mapInfo} />
       </div>
     </div>
