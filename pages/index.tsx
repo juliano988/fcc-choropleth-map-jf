@@ -10,15 +10,21 @@ import 'tippy.js/animations/shift-away-subtle.css';
 import ReactDOMServer from 'react-dom/server';
 
 export default function Home({ educInfo, mapInfo }) {
+
   return (
     <div className={styles.container}>
       <Head>
         <title>FCC Choropleth Map</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>United States Educational Attainment</h1>
-      <h4>Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h4>
-      <div style={{ width: '55vw', margin: 'auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img style={{ width: '100px', height: '50px' }} src='usa-flag-gif.gif' alt='USA Flag'></img>
+        <div>
+          <h1>United States Educational Attainment</h1>
+        </div>
+      </div>
+      <h4 style={{margin: '0px', marginBottom: '20px'}}>Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h4>
+      <div style={{maxWidth: '800px', margin: 'auto',padding: '10px'}}>
         <Graphic educInfo={educInfo} mapInfo={mapInfo} />
       </div>
     </div>
@@ -37,7 +43,7 @@ function Graphic(props: { mapInfo: Topology<Objects<{ [name: string]: any; }>>, 
   useLayoutEffect(function () {
 
     const svgWidth = graphicRef.current.clientWidth;
-    const svgHeight = svgWidth * (props.mapInfo.transform.scale[1]/props.mapInfo.transform.scale[0]);
+    const svgHeight = svgWidth * (props.mapInfo.transform.scale[1] / props.mapInfo.transform.scale[0]);
 
     const transformVal = 'scale(' + (props.mapInfo.transform.scale[0] * svgWidth / 10) + '),translate(' + -props.mapInfo.transform.translate[0] + ',' + -props.mapInfo.transform.translate[1] + ')';
 
@@ -107,7 +113,7 @@ function Graphic(props: { mapInfo: Topology<Objects<{ [name: string]: any; }>>, 
             case 3: return '30%';
             case 2: return '21%';
             case 1: return '12%';
-            case 0: return '03%';
+            case 0: return '3%';
             default: break;
           }
         }))
