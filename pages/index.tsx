@@ -23,8 +23,8 @@ export default function Home({ educInfo, mapInfo }) {
           <h1>United States Educational Attainment</h1>
         </div>
       </div>
-      <h4 style={{margin: '0px', marginBottom: '20px'}}>Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h4>
-      <div style={{maxWidth: '800px', margin: 'auto',padding: '10px'}}>
+      <h4 style={{ margin: '0px', marginBottom: '20px' }}>Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h4>
+      <div style={{ maxWidth: '800px', margin: 'auto', padding: '10px' }}>
         <Graphic educInfo={educInfo} mapInfo={mapInfo} />
       </div>
     </div>
@@ -54,6 +54,7 @@ function Graphic(props: { mapInfo: Topology<Objects<{ [name: string]: any; }>>, 
 
     const countiesMap = svg.append('g')
       .selectAll('path')
+      // @ts-ignore
       .data(topojson.feature(props.mapInfo, props.mapInfo.objects.counties).features)
       .enter().append('path')
       .attr('data-fips', (d: geometriesArrElem) => d.id)
